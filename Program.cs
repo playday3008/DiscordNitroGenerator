@@ -17,7 +17,12 @@ namespace DiscordNitroGeneratorBasic
         static void Main(string[] args)
         {
             Console.Title = "Discord Nitro Generator";
-            Timer t = new Timer(TimerCallback, null, 0, 3000);
+
+            string delayy;
+            Console.Write("Enter delay in ms. (3000): ");
+            delayy = Console.ReadLine(); 
+            int delay = Convert.ToInt32(delayy);
+            Timer t = new Timer(TimerCallback, null, 0, delay);
 
             Console.ReadKey();
 
