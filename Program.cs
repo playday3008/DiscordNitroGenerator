@@ -16,7 +16,7 @@ namespace DiscordNitroGeneratorBasic
         public static string oldCode = string.Empty;
         static void Main(string[] args)
         {
-            Console.Title = "Generator Discord Nitro";
+            Console.Title = "Discord Nitro Generator";
             Timer t = new Timer(TimerCallback, null, 0, 3000);
 
             Console.ReadKey();
@@ -51,13 +51,13 @@ namespace DiscordNitroGeneratorBasic
                     var client = new HttpClient(handler);
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36");
+                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36");
 
                     try
                     {
 
                         var content = client.GetStringAsync(new Uri("https://discordapp.com/api/v6/entitlements/gift-codes/" + finalString + "?with_application=false&with_subscription_plan=true")).Result;
-                        Console.WriteLine(finalString + " / EST UN BON CODE !" + Environment.NewLine);
+                        Console.WriteLine(finalString + " / FOUNDED !" + Environment.NewLine);
                        
                    
                     
@@ -75,11 +75,11 @@ namespace DiscordNitroGeneratorBasic
                         Console.ForegroundColor = ConsoleColor.White;
                         if (ex.InnerException.Message.Contains("404"))
                         {
-                            Console.WriteLine( " : Code nitro invalide" + Environment.NewLine);
+                            Console.WriteLine( " : Invalid Nitro code" + Environment.NewLine);
                         }
                         if (ex.InnerException.Message.Contains("429"))
                         {
-                            Console.WriteLine(" : Trop de Requêtes / 429" + Environment.NewLine);
+                            Console.WriteLine(" : Too many requests / 429" + Environment.NewLine);
                         }
                     
                 }
